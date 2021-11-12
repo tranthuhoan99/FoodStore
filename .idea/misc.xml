@@ -4,6 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/79805/AndroidStudioProjects/FoodStore/app/src/main/res/layout/activity_main.xml" value="0.1037037037037037" />
+        <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/activity_customer_login.xml" value="0.29635416666666664" />
+        <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/activity_manager_forgot_password.xml" value="0.29635416666666664" />
+        <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/activity_manager_login.xml" value="0.33" />
+        <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/layout_manager_login.xml" value="0.40942028985507245" />
+        <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/layout_student_login.xml" value="0.33" />
       </map>
     </option>
   </component>
