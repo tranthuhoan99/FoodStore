@@ -22,13 +22,17 @@ public class Manager implements Parcelable {
     @SerializedName("MnPhone")
     @Expose
     private String mnPhone;
+    @SerializedName("MnAvatar")
+    @Expose
+    private String mnAvatar;
     
     protected Manager(Parcel in) {
         mnId = in.readString();
         mnEmail = in.readString();
         mnPassword = in.readString();
         mnName = in.readString();
-        mnPhone = in.readString(); 
+        mnPhone = in.readString();
+        mnAvatar = in.readString();
     }
     public static final Creator<Manager> CREATOR = new Creator<Manager>() {
         @Override
@@ -54,6 +58,7 @@ public class Manager implements Parcelable {
         dest.writeString(mnPassword);
         dest.writeString(mnName);
         dest.writeString(mnPhone);
+        dest.writeString(mnAvatar);
     }
 
     public String getMnId() {
@@ -94,5 +99,13 @@ public class Manager implements Parcelable {
 
     public void setMnPhone(String mnPhone) {
         this.mnPhone = mnPhone;
+    }
+
+    public String getMnAvatar() {
+        return mnAvatar;
+    }
+
+    public void setMnAvatar(String mnAvatar) {
+        this.mnAvatar = mnAvatar;
     }
 }

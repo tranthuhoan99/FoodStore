@@ -2,6 +2,7 @@ package com.tranthuhoan.foodstore.retrofit;
 
 
 
+import com.tranthuhoan.foodstore.model.Food;
 import com.tranthuhoan.foodstore.model.Manager;
 
 import java.util.List;
@@ -110,9 +111,9 @@ public interface DataClient {
 //                                     @Field("StudentActive") String StudentActive,
 //                                     @Field("StudentAvatar") String StudentAvatar);
 //
-//    //View All
-//    @POST("admin/viewAllStu.php")
-//    Call<List<Student>> ManagerViewAllStudentData();
+    //View All
+    @POST("manager/viewAllFood.php")
+    Call<List<Food>> ManagerViewAllFoodData();
 //
 //    //Update
 //    @FormUrlEncoded

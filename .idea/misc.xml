@@ -3,18 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/79805/AndroidStudioProjects/FoodStore/app/src/main/res/layout/activity_customer_login.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/79805/AndroidStudioProjects/FoodStore/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/79805/AndroidStudioProjects/FoodStore/app/src/main/res/layout/activity_manager_forgot_password.xml" value="0.17916666666666667" />
-        <entry key="..\:/Users/79805/AndroidStudioProjects/FoodStore/app/src/main/res/layout/activity_manager_login.xml" value="0.17777777777777778" />
-        <entry key="..\:/Users/79805/AndroidStudioProjects/FoodStore/app/src/main/res/layout/activity_manager_menu.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/79805/AndroidStudioProjects/FoodStore/app/src/main/res/layout/layout_manager_login.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/79805/AndroidStudioProjects/FoodStore/app/src/main/res/layout/activity_main.xml" value="0.1037037037037037" />
         <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/activity_customer_login.xml" value="0.29635416666666664" />
         <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/activity_manager_food_view_all.xml" value="0.31302083333333336" />
         <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/activity_manager_forgot_password.xml" value="0.29635416666666664" />
         <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/activity_manager_login.xml" value="0.33" />
+        <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/activity_manager_menu.xml" value="0.5572916666666666" />
+        <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/admin_app_bar_main.xml" value="0.33" />
         <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/layout_manager_login.xml" value="0.40942028985507245" />
         <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/layout_student_login.xml" value="0.33" />
+        <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/list_item_food.xml" value="0.5572916666666666" />
+        <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/manager_home.xml" value="0.34739583333333335" />
+        <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/layout/manager_nav_header.xml" value="0.32708333333333334" />
+        <entry key="..\:/Users/daota/Desktop/FoodStore/app/src/main/res/menu/admin_nav_drawer_menu.xml" value="0.5572916666666666" />
       </map>
     </option>
   </component>
