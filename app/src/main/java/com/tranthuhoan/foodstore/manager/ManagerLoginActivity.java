@@ -1,7 +1,9 @@
-package com.tranthuhoan.foodstore;
+package com.tranthuhoan.foodstore.manager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.tranthuhoan.foodstore.CustomerLoginActivity;
+import com.tranthuhoan.foodstore.R;
 import com.tranthuhoan.foodstore.model.Manager;
 import com.tranthuhoan.foodstore.retrofit.APIUtils;
 import com.tranthuhoan.foodstore.retrofit.DataClient;

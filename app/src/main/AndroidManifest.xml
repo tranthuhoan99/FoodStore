@@ -13,16 +13,19 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ManagerFoodViewAllActivity"
+            android:name=".manager.ManagerUpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".manager.ManagerFoodViewAllActivity"
             android:exported="false" />
         <activity
             android:name=".CustomerLoginActivity"
             android:exported="false" />
         <activity
-            android:name=".ManagerMenuActivity"
+            android:name=".manager.ManagerMenuActivity"
             android:exported="false" />
         <activity
-            android:name=".ManagerLoginActivity"
+            android:name=".manager.ManagerLoginActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

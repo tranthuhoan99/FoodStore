@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 
+import com.tranthuhoan.foodstore.manager.ManagerLoginActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     //Time Splash before run app

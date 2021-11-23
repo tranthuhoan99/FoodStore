@@ -1,8 +1,10 @@
-package com.tranthuhoan.foodstore;
+package com.tranthuhoan.foodstore.manager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.tranthuhoan.foodstore.R;
 
 public class ManagerForgotPasswordActivity extends AppCompatActivity {
 

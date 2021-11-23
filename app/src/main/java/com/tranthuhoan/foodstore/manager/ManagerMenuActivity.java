@@ -1,4 +1,4 @@
-package com.tranthuhoan.foodstore;
+package com.tranthuhoan.foodstore.manager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.squareup.picasso.Picasso;
+import com.tranthuhoan.foodstore.R;
 import com.tranthuhoan.foodstore.model.Manager;
 
 import java.util.ArrayList;
@@ -95,15 +96,15 @@ public class ManagerMenuActivity extends AppCompatActivity {
 //            }
 //        });
 //
-//        //Button Edit
-//        btnManagerEdit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(ManagerMenuActivity.this, ManagerUpdateActivity.class);
-//                intent.putExtra("ADMIN_DATA_FROM_MENU_TO_UPDATE", managerArr);
-//                startActivityForResult(intent, ADMIN_UPDATE_ACTIVITY);
-//            }
-//        });
+        //Button Edit
+        btnManagerEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ManagerMenuActivity.this, ManagerUpdateActivity.class);
+                intent.putExtra("ADMIN_DATA_FROM_MENU_TO_UPDATE", managerArr);
+                startActivityForResult(intent, ADMIN_UPDATE_ACTIVITY);
+            }
+        });
 
         //Nav
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -123,7 +124,7 @@ public class ManagerMenuActivity extends AppCompatActivity {
 //                        drawerLayout.closeDrawer(GravityCompat.START);
 //                        break;
                     case R.id.it_manager_nav_dra_menu_view_all_food:
-//                        startActivity(new Intent(ManagerMenuActivity.this, ManagerStudentViewAllActivity.class));
+                        startActivity(new Intent(ManagerMenuActivity.this, ManagerFoodViewAllActivity.class));
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 //                    case R.id.it_manager_nav_dra_menu_notice:
@@ -205,18 +206,18 @@ public class ManagerMenuActivity extends AppCompatActivity {
         tvManagerName.setText(managerArr.get(0).getMnName());
         tvAdNavHeaderName.setText(managerArr.get(0).getMnName());
         tvAdNavHeaderEmail.setText(managerArr.get(0).getMnEmail());
-//        if (!managerArr.get(0).getMnAvatar().equals("")) {
-//            Picasso.get()
-//                    .load(managerArr.get(0).getMnAvatar())
-//                    .placeholder(R.drawable.admin)
-//                    .error(R.drawable.admin)
-//                    .into(ivManagerAvt);
-//            Picasso.get()
-//                    .load(managerArr.get(0).getMnAvatar())
-//                    .placeholder(R.drawable.admin)
-//                    .error(R.drawable.admin)
-//                    .into(ivAdNavHeader);
-//        }
+        if (!managerArr.get(0).getMnAvatar().equals("")) {
+            Picasso.get()
+                    .load(managerArr.get(0).getMnAvatar())
+                    .placeholder(R.drawable.admin)
+                    .error(R.drawable.admin)
+                    .into(ivManagerAvt);
+            Picasso.get()
+                    .load(managerArr.get(0).getMnAvatar())
+                    .placeholder(R.drawable.admin)
+                    .error(R.drawable.admin)
+                    .into(ivAdNavHeader);
+        }
 
     }
 

@@ -1,7 +1,6 @@
 package com.tranthuhoan.foodstore.retrofit;
 
 
-
 import com.tranthuhoan.foodstore.model.Food;
 import com.tranthuhoan.foodstore.model.Manager;
 
@@ -70,19 +69,23 @@ public interface DataClient {
     Call<List<Manager>> LoginManagerData(@Field("ManagerEmail") String ManagerEmail,
                                          @Field("ManagerPassword") String ManagerPassword);
 
-//    @Multipart
-//    @POST("admin/uploadImage.php")
-//    Call<String> UploadManagerPhoto(@Part MultipartBody.Part photo);
-//
-//    @FormUrlEncoded
-//    @POST("admin/update.php")
-//    Call<String> UpdateManagerData(@Field("ManagerId") String ManagerId,
-//                                 @Field("ManagerEmail") String ManagerEmail,
-//                                 @Field("ManagerName") String ManagerName,
-//                                 @Field("ManagerAvatar") String ManagerAvatar,
-//                                 @Field("ManagerCurrentAvatar") String ManagerCurrentAvatar);
-//
-//    @FormUrlEncoded
+    @GET("manager/delete.php")
+    Call<String> DeleteManagerData(@Query("ManagerId") String ManagerId, @Query("ManagerAvatar") String ManagerAvatar);
+
+    @Multipart
+    @POST("manager/uploadImage.php")
+    Call<String> UploadManagerPhoto(@Part MultipartBody.Part photo);
+
+    @FormUrlEncoded
+    @POST("manager/update.php")
+    Call<String> UpdateManagerData(@Field("ManagerId") String ManagerId,
+                                   @Field("ManagerEmail") String ManagerEmail,
+                                   @Field("ManagerName") String ManagerName,
+                                   @Field("ManagerPhone") String ManagerPhone,
+                                   @Field("ManagerAvatar") String ManagerAvatar,
+                                   @Field("ManagerCurrentAvatar") String ManagerCurrentAvatar);
+
+    //    @FormUrlEncoded
 //    @POST("admin/forgotPassword.php")
 //    Call<String> ForgotPasswordManagerData(@Field("ManagerId") String ManagerId,
 //                                         @Field("ManagerEmail") String ManagerEmail,

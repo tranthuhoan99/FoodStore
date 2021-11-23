@@ -1,4 +1,4 @@
-package com.tranthuhoan.foodstore;
+package com.tranthuhoan.foodstore.manager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,6 +15,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.tranthuhoan.foodstore.DividerItemDecorator;
+import com.tranthuhoan.foodstore.R;
+import com.tranthuhoan.foodstore.adapters.FoodListAdapter;
 import com.tranthuhoan.foodstore.model.Food;
 import com.tranthuhoan.foodstore.retrofit.APIUtils;
 import com.tranthuhoan.foodstore.retrofit.DataClient;

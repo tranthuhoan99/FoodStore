@@ -14,7 +14,7 @@
             style="@style/modifiedEditText"
             android:drawableStart="@drawable/ic_baseline_search_24"
             android:drawableTint="?attr/colorControlNormal"
-            android:hint="Search Name or Class"
+            android:hint="Search Food Name or Price"
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 

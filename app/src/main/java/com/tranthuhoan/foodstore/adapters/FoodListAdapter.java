@@ -1,9 +1,6 @@
-package com.tranthuhoan.foodstore;
+package com.tranthuhoan.foodstore.adapters;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
+import com.tranthuhoan.foodstore.ItemClickListener;
+import com.tranthuhoan.foodstore.R;
 import com.tranthuhoan.foodstore.model.Food;
 
 
