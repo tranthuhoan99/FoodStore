@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/loginCard"
     android:layout_gravity="center"
@@ -17,7 +18,7 @@
         <TextView
             style="@style/headerTextPrimary"
             android:layout_marginTop="@dimen/loginViewsMargin"
-            android:text="МЕНЕДЖЕР ВОЙТИ" />
+            android:text="КЛИЕНТ ВОЙТИ" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputEmail"
@@ -25,7 +26,7 @@
             android:layout_marginTop="@dimen/loginViewsMargin">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_manager_login_email"
+                android:id="@+id/edt_cus_login_email"
                 style="@style/modifiedEditText"
                 android:drawableStart="@drawable/round_mail_outline_24"
                 android:hint="Эл. адрес"
@@ -40,13 +41,14 @@
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_manager_login_password"
+                android:id="@+id/edt_cus_login_password"
                 style="@style/modifiedEditText"
                 android:drawableStart="@drawable/round_lock_24"
                 android:hint="Пароль"
                 android:inputType="textPassword"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -56,7 +58,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/cb_manager_login_remember_me"
+                android:id="@+id/cb_cus_login_remember_me"
                 style="@style/viewParent"
                 android:layout_gravity="start"
                 android:text="Запомнить меня"
@@ -64,7 +66,7 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/tv_manager_login_forgot_password"
+                android:id="@+id/tv_cus_login_forgot_password"
                 style="@style/viewParent"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
@@ -78,22 +80,32 @@
         </RelativeLayout>
 
         <Button
-            android:id="@+id/btn_manager_login"
+            android:id="@+id/btn_cus_login"
             style="@style/loginButton"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/loginViewsMargin"
-            android:text="Войти" />
+            android:text="Login" />
 
         <TextView
-            android:id="@+id/tv_manager_login_to_login_customer"
+            android:id="@+id/tv_cus_login_to_login_admin"
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin"
-            android:text="Вы клиент? Войти здесь"
+            android:text="Вы менеджер? Войти здесь"
             android:textAlignment="center"
             android:textColor="@color/primaryTextColor"
             android:textSize="16sp"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/tv_cus_login_to_register"
+            style="@style/parent"
+            android:layout_marginTop="3dp"
+            android:text="Нет учетной записи? Зарегистрироваться"
+            android:textAlignment="center"
+            android:textColor="@color/primaryTextColor"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>

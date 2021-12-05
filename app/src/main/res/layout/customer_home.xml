@@ -21,25 +21,34 @@
             android:text="Добро пожаловать"
             android:textSize="25sp"
             app:fontFamily="@font/roboto_regular"
-            app:layout_constraintEnd_toStartOf="@+id/iv_admin_avt"
+            app:layout_constraintEnd_toStartOf="@+id/iv_cus_avt"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="MissingConstraints" />
 
         <TextView
-            android:id="@+id/tv_admin_name"
+            android:id="@+id/tv_cus_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            app:layout_constraintEnd_toStartOf="@+id/iv_admin_avt"
+            app:layout_constraintEnd_toStartOf="@+id/iv_cus_avt"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+<!--        <TextView-->
+<!--            android:id="@+id/tv_cus_home_class"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/iv_cus_avt"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tv_cus_name" />-->
+
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/iv_admin_avt"
+            android:id="@+id/iv_cus_avt"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginEnd="20dp"
-            android:src="@drawable/admin"
+            android:src="@drawable/review"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView"
             tools:ignore="MissingConstraints" />
@@ -53,7 +62,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_admin_avt">
+            app:layout_constraintTop_toBottomOf="@+id/iv_cus_avt">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
@@ -65,18 +74,18 @@
                 app:cardElevation="5dp">
 
                 <Button
-                    android:id="@+id/btn_admin_edit"
+                    android:id="@+id/btn_cus_view_profile"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="?attr/selectableItemBackground"
                     android:drawableStart="@drawable/ic_baseline_person_pin_24"
                     android:drawablePadding="10dp"
-                    android:drawableTint="@color/white"
+                    android:drawableTint="#fff"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    android:text="Профиль\nМенеджера"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:text="Мой профайл"
+                    android:textColor="#fff"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
 
@@ -90,18 +99,18 @@
                 app:cardElevation="5dp">
 
                 <Button
-                    android:id="@+id/btn_student_view_all"
+                    android:id="@+id/btn_cus_change_password"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="?attr/selectableItemBackground"
-                    android:drawableStart="@drawable/ic_baseline_format_list_bulleted_24"
+                    android:drawableStart="@drawable/round_lock_24"
                     android:drawablePadding="10dp"
                     android:drawableTint="#fff"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    android:text="Каталог\nПродуктов"
+                    android:text="Измени пароль"
                     android:textColor="#fff"
-                    android:textSize="14sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
         </LinearLayout>
@@ -127,22 +136,20 @@
                 app:cardElevation="5dp">
 
                 <Button
-                    android:id="@+id/btn_student_add"
+                    android:id="@+id/btn_cus_menu_report"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="?attr/selectableItemBackground"
-                    android:drawableStart="@drawable/ic_baseline_view_list_24"
+                    android:drawableStart="@drawable/ic_baseline_message_24"
                     android:drawablePadding="10dp"
                     android:drawableTint="#fff"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    android:text="Список клиентов"
+                    android:text="Каталог Продуктов"
                     android:textColor="#fff"
-                    android:textSize="14sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -167,7 +174,7 @@
                 app:cardElevation="5dp">
 
                 <Button
-                    android:id="@+id/btn_home_menu_logout"
+                    android:id="@+id/btn_cus_logout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="?attr/selectableItemBackground"
@@ -176,9 +183,9 @@
                     android:drawableTint="#fff"
                     android:paddingLeft="20dp"
                     android:paddingRight="20dp"
-                    android:text="Выход"
+                    android:text="Выйти из личного кабинета"
                     android:textColor="#fff"
-                    android:textSize="15sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
             </androidx.cardview.widget.CardView>
         </LinearLayout>

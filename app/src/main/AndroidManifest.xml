@@ -13,13 +13,43 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.activities.customer.CustomerFoodViewAllActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.customer.CustomerViewProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.customer.CustomerMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.customer.CustomerLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".manager.customer.AdminCustomerViewProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".manager.customer.AdminCustomerViewAllActivity"
+            android:exported="false" />
+        <activity
+            android:name=".manager.customer.AdminCustomerUpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".manager.customer.AdminCustomerAddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".manager.food.ManagerFoodAddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".manager.food.ManagerFoodUpdateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".manager.food.ManagerFoodViewDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".manager.ManagerUpdateActivity"
             android:exported="false" />
         <activity
-            android:name=".manager.ManagerFoodViewAllActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CustomerLoginActivity"
+            android:name=".manager.food.ManagerFoodViewAllActivity"
             android:exported="false" />
         <activity
             android:name=".manager.ManagerMenuActivity"

@@ -1,6 +1,7 @@
 package com.tranthuhoan.foodstore.retrofit;
 
 
+import com.tranthuhoan.foodstore.model.Customer;
 import com.tranthuhoan.foodstore.model.Food;
 import com.tranthuhoan.foodstore.model.Manager;
 
@@ -115,8 +116,37 @@ public interface DataClient {
 //                                     @Field("StudentAvatar") String StudentAvatar);
 //
     //View All
-    @POST("manager/viewAllFood.php")
+    @POST("manager/food/viewAllFood.php")
     Call<List<Food>> ManagerViewAllFoodData();
+
+    @Multipart
+    @POST("manager/food/uploadImage.php")
+    Call<String> UploadFoodPhoto(@Part MultipartBody.Part photo);
+
+    @GET("manager/food/delete.php")
+    Call<String> DeleteFoodData(@Query("FoodId") String FoodId, @Query("FoodImage") String FoodImage);
+
+    //Update
+    @FormUrlEncoded
+    @POST("manager/food/updateFood.php")
+    Call<String> ManagerUpdateFoodData(@Field("FoodId") String FoodId,
+                                       @Field("FoodName") String FoodName,
+                                       @Field("FoodPrice") String FoodPrice,
+                                       @Field("FoodDes") String FoodDes,
+                                       @Field("FoodAvail") String FoodAvail,
+                                       @Field("FoodQuantity") String FoodQuantity,
+                                       @Field("FoodImage") String FoodImage,
+                                       @Field("FoodCurrentImage") String FoodCurrentImage);
+
+    @FormUrlEncoded
+    @POST("manager/food/addFood.php")
+    Call<String> ManagerAddFoodData(
+            @Field("FoodName") String FoodName,
+            @Field("FoodPrice") String FoodPrice,
+            @Field("FoodDes") String FoodDes,
+            @Field("FoodAvail") String FoodAvail,
+            @Field("FoodQuantity") String FoodQuantity,
+            @Field("FoodImage") String FoodImage);
 //
 //    //Update
 //    @FormUrlEncoded
@@ -144,4 +174,51 @@ public interface DataClient {
 //    @POST("admin/replyStudent.php")
 //    Call<String> ManagerReplyStudentData(@Field("StudentId") String StudentId,
 //                                       @Field("StudentReply") String StudentReply);
+
+    //Admin Manager
+    //Add Customer
+    @FormUrlEncoded
+    @POST("manager/addCustomer.php")
+    Call<String> AdminAddCustomerData(@Field("CustomerName") String CustomerName,
+                                      @Field("CustomerPhone") String CustomerPhone,
+                                      @Field("CustomerAddress") String CustomerAddress,
+                                      @Field("CustomerEmail") String CustomerEmail,
+                                      @Field("CustomerIsVip") String CustomerIsVip,
+                                      @Field("CustomerPassword") String CustomerPassword,
+                                      @Field("CustomerAvatar") String CustomerAvatar,
+                                      @Field("CustomerDOB") String CustomerDOB,
+                                      @Field("CustomerGender") String CustomerGender);
+
+    //View All Customer
+    @POST("manager/viewAllCus.php")
+    Call<List<Customer>> AdminViewAllCustomerData();
+
+
+    //Update
+    @FormUrlEncoded
+    @POST("manager/updateCustomer.php")
+    Call<String> AdminUpdateCustomerData(@Field("CustomerId") String CustomerId,
+                                         @Field("CustomerName") String CustomerName,
+                                         @Field("CustomerPhone") String CustomerPhone,
+                                         @Field("CustomerAddress") String CustomerAddress,
+                                         @Field("CustomerEmail") String CustomerEmail,
+                                         @Field("CustomerIsVip") String CustomerIsVip,
+                                         @Field("CustomerPassword") String CustomerPassword,
+                                         @Field("CustomerAvatar") String CustomerAvatar,
+                                         @Field("CustomerCurrentAvatar") String CustomerCurrentAvatar,
+                                         @Field("CustomerDOB") String CustomerDOB,
+                                         @Field("CustomerGender") String CustomerGender);
+
+    @Multipart
+    @POST("uploadImage.php")
+    Call<String> UploadCustomerPhoto(@Part MultipartBody.Part photo);
+
+
+    @GET("delete.php")
+    Call<String> DeleteCustomerData(@Query("CustomerId") String CustomerId, @Query("CustomerAvatar") String CustomerAvatar);
+
+    @FormUrlEncoded
+    @POST("login.php")
+    Call<List<Customer>> LoginCustomerData(@Field("CustomerEmail") String CustomerEmail,
+                                           @Field("CustomerPassword") String CustomerPassword);
 }

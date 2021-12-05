@@ -1,4 +1,4 @@
-package com.tranthuhoan.foodstore.manager;
+package com.tranthuhoan.foodstore.manager.customer;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,8 +18,8 @@ import android.widget.ImageButton;
 
 import com.tranthuhoan.foodstore.DividerItemDecorator;
 import com.tranthuhoan.foodstore.R;
-import com.tranthuhoan.foodstore.adapters.FoodListAdapter;
-import com.tranthuhoan.foodstore.model.Food;
+import com.tranthuhoan.foodstore.adapters.CustomerListAdapter;
+import com.tranthuhoan.foodstore.model.Customer;
 import com.tranthuhoan.foodstore.retrofit.APIUtils;
 import com.tranthuhoan.foodstore.retrofit.DataClient;
 
@@ -30,24 +31,27 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ManagerFoodViewAllActivity extends AppCompatActivity {
+public class AdminCustomerViewAllActivity extends AppCompatActivity {
 
-    private ArrayList<Food> foodArr, foodArrSearch;
+
+    private ArrayList<Customer> studentArr, studentArrSearch;
     RecyclerView rvItems;
-    SwipeRefreshLayout srlMnFoodViewAll;
-    private FoodListAdapter foodListAdapter;
+    SwipeRefreshLayout srlAdStuViewAll;
+    private CustomerListAdapter studentListAdapter;
 
-    ImageButton ibFoodAdd;
-    EditText edtFoodViewAllSearch;
+    ImageButton ibStuAdd;
+    EditText edtStuViewAllSearch;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manager_food_view_all);
+        setContentView(R.layout.activity_admin_customer_view_all);
+
 
         //Search
-        edtFoodViewAllSearch = findViewById(R.id.edt_stu_view_all_search);
-        edtFoodViewAllSearch.addTextChangedListener(new TextWatcher() {
+        edtStuViewAllSearch = findViewById(R.id.edt_stu_view_all_search);
+        edtStuViewAllSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
@@ -67,92 +71,94 @@ public class ManagerFoodViewAllActivity extends AppCompatActivity {
 
 
         //SwipeRefreshLayout
-        srlMnFoodViewAll = findViewById(R.id.srl_ad_stu_view_all);
-        srlMnFoodViewAll.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        srlAdStuViewAll = findViewById(R.id.srl_ad_stu_view_all);
+        srlAdStuViewAll.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onRefresh() {
                 readData();
-                foodListAdapter.notifyDataSetChanged();
-                srlMnFoodViewAll.setRefreshing(false);
+                studentListAdapter.notifyDataSetChanged();
+                srlAdStuViewAll.setRefreshing(false);
             }
         });
 
         //Circle Button Add
-        ibFoodAdd = findViewById(R.id.ib_stu_add);
-        ibFoodAdd.setOnClickListener(new View.OnClickListener() {
+        ibStuAdd = findViewById(R.id.ib_stu_add);
+        ibStuAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(AdminStudentViewAllActivity.this, AdminStudentAddActivity.class));
+                startActivity(new Intent(AdminCustomerViewAllActivity.this, AdminCustomerAddActivity.class));
             }
         });
 
         addControls();
         readData();
+
     }
     //Filter data
     @SuppressLint("NotifyDataSetChanged")
     public void FilterData(String textSearch) {
         textSearch = textSearch.toLowerCase(Locale.getDefault());
         Log.d("filter", textSearch);
-        foodArr.clear();
+        studentArr.clear();
         if(textSearch.length() == 0) {
-            foodArr.addAll(foodArrSearch);
+            studentArr.addAll(studentArrSearch);
             Log.d("load data", "all");
         }
         else {
             Log.d("load data", "filtered");
-            for (int i=0; i<foodArrSearch.size(); i++) {
-                if(foodArrSearch.get(i).getFoodName().toLowerCase(Locale.getDefault()).contains(textSearch) ||
-                        foodArrSearch.get(i).getFoodPrice().toLowerCase(Locale.getDefault()).contains(textSearch)) {
-                    foodArr.add(foodArrSearch.get(i));
+            for (int i=0; i<studentArrSearch.size(); i++) {
+                if(studentArrSearch.get(i).getCusName().toLowerCase(Locale.getDefault()).contains(textSearch) ||
+                        studentArrSearch.get(i).getCusAddress().toLowerCase(Locale.getDefault()).contains(textSearch)) {
+                    studentArr.add(studentArrSearch.get(i));
                 }
             }
         }
-        foodListAdapter.notifyDataSetChanged();
+        studentListAdapter.notifyDataSetChanged();
     }
 
     private void readData() {
-        foodArr.clear();
-        foodArrSearch.clear();
+        studentArr.clear();
+        studentArrSearch.clear();
         DataClient dataClient = APIUtils.getData();
-        retrofit2.Call<List<Food>> callback = dataClient.ManagerViewAllFoodData();
-        callback.enqueue(new Callback<List<Food>>() {
+        retrofit2.Call<List<Customer>> callback = dataClient.AdminViewAllCustomerData();
+        callback.enqueue(new Callback<List<Customer>>() {
             @Override
-            public void onResponse(Call<List<Food>> call, Response<List<Food>> response) {
-                foodArr = (ArrayList<Food>) response.body();
+            public void onResponse(Call<List<Customer>> call, Response<List<Customer>> response) {
+                studentArr = (ArrayList<Customer>) response.body();
 
-                if (foodArr.size() > 0) {
-                    foodArrSearch.addAll(foodArr);
-                    foodListAdapter = new FoodListAdapter(getApplicationContext(), foodArr);
-                    //foodListAdapter.notifyDataSetChanged();
-                    rvItems.setAdapter(foodListAdapter);
+                if (studentArr.size() > 0) {
+                    studentArrSearch.addAll(studentArr);
+                    studentListAdapter = new CustomerListAdapter(getApplicationContext(), studentArr);
+                    //studentListAdapter.notifyDataSetChanged();
+                    rvItems.setAdapter(studentListAdapter);
 
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Food>> call, Throwable t) {
+            public void onFailure(Call<List<Customer>> call, Throwable t) {
                 Log.d("Error load all stu", t.getMessage());
             }
         });
     }
 
     private void addControls() {
-        foodArr = new ArrayList<>();
-        foodArrSearch = new ArrayList<>();
+        studentArr = new ArrayList<>();
+        studentArrSearch = new ArrayList<>();
         rvItems = findViewById(R.id.rv_ad_stu_view_all_items);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rvItems.setLayoutManager(layoutManager);
         rvItems.setHasFixedSize(true);
 
         //divider for RecycleView(need Class DividerItemDecorator and divider.xml)
-        RecyclerView.ItemDecoration dividerItemDecoration = new DividerItemDecorator(ContextCompat.getDrawable(ManagerFoodViewAllActivity.this, R.drawable.divider));
+        RecyclerView.ItemDecoration dividerItemDecoration = new DividerItemDecorator(ContextCompat.getDrawable(AdminCustomerViewAllActivity.this, R.drawable.divider));
         rvItems.addItemDecoration(dividerItemDecoration);
 
         //Fix: No adapter attached; skipping layout
         //Set adapter first after show
-        foodListAdapter = new FoodListAdapter(getApplicationContext(), foodArr); // this
-        rvItems.setAdapter(foodListAdapter);
+        studentListAdapter = new CustomerListAdapter(getApplicationContext(), studentArr); // this
+        rvItems.setAdapter(studentListAdapter);
     }
+
 }

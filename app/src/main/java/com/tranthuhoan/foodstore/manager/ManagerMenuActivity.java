@@ -22,6 +22,9 @@ import android.widget.TextView;
 import com.google.android.material.navigation.NavigationView;
 import com.squareup.picasso.Picasso;
 import com.tranthuhoan.foodstore.R;
+import com.tranthuhoan.foodstore.manager.customer.AdminCustomerAddActivity;
+import com.tranthuhoan.foodstore.manager.customer.AdminCustomerViewAllActivity;
+import com.tranthuhoan.foodstore.manager.food.ManagerFoodViewAllActivity;
 import com.tranthuhoan.foodstore.model.Manager;
 
 import java.util.ArrayList;
@@ -39,7 +42,7 @@ public class ManagerMenuActivity extends AppCompatActivity {
     ArrayList<Manager> managerArr;
 
     // Activity need back home menu
-    public static final int ADMIN_UPDATE_ACTIVITY = 1;
+    public static final int MANAGER_UPDATE_ACTIVITY = 1;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,14 +74,14 @@ public class ManagerMenuActivity extends AppCompatActivity {
                 startActivity(new Intent(ManagerMenuActivity.this, ManagerFoodViewAllActivity.class));
             }
         });
-//
-//        //Add Student Button
-//        addStudent.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(ManagerMenuActivity.this, ManagerStudentAddActivity.class));
-//            }
-//        });
+
+        //Add Student Button
+        addStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ManagerMenuActivity.this, AdminCustomerViewAllActivity.class));
+            }
+        });
 //
 //        //Button Notice
 //        noticeStudent.setOnClickListener(new View.OnClickListener() {
@@ -101,8 +104,8 @@ public class ManagerMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ManagerMenuActivity.this, ManagerUpdateActivity.class);
-                intent.putExtra("ADMIN_DATA_FROM_MENU_TO_UPDATE", managerArr);
-                startActivityForResult(intent, ADMIN_UPDATE_ACTIVITY);
+                intent.putExtra("MANAGER_DATA_FROM_MENU_TO_UPDATE", managerArr);
+                startActivityForResult(intent, MANAGER_UPDATE_ACTIVITY);
             }
         });
 
@@ -137,8 +140,8 @@ public class ManagerMenuActivity extends AppCompatActivity {
 //                        break;
                     case R.id.it_manager_nav_dra_menu_manager_profile:
 //                        Intent intent = new Intent(ManagerMenuActivity.this, ManagerUpdateActivity.class);
-//                        intent.putExtra("ADMIN_DATA_FROM_MENU_TO_UPDATE", managerArr);
-//                        startActivityForResult(intent, ADMIN_UPDATE_ACTIVITY);
+//                        intent.putExtra("MANAGER_DATA_FROM_MENU_TO_UPDATE", managerArr);
+//                        startActivityForResult(intent, MANAGER_UPDATE_ACTIVITY);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 //                    case R.id.it_manager_nav_dra_menu_change_password:
@@ -179,7 +182,7 @@ public class ManagerMenuActivity extends AppCompatActivity {
     //Receive Data From Login
     private void receiveDataFromLogin() {
         Intent intent = getIntent();
-        managerArr = intent.getParcelableArrayListExtra("ADMIN_DATA_FROM_LOGIN_TO_MENU");
+        managerArr = intent.getParcelableArrayListExtra("MANAGER_DATA_FROM_LOGIN_TO_MENU");
     }
 
     // Connect Layout
@@ -190,8 +193,7 @@ public class ManagerMenuActivity extends AppCompatActivity {
         btnHomeMenuLogout = findViewById(R.id.btn_home_menu_logout);
         addStudent = findViewById(R.id.btn_student_add);
         viewStudent = findViewById(R.id.btn_student_view_all);
-        noticeStudent = findViewById(R.id.btn_student_notice);
-        reportStudent = findViewById(R.id.btn_student_report);
+
         drawerLayout = findViewById(R.id.dl_admin_drawer);
         toolbar = findViewById(R.id.tb_admin_toolBar);
         navigationView = findViewById(R.id.nv_admin);
@@ -233,9 +235,9 @@ public class ManagerMenuActivity extends AppCompatActivity {
         if (data == null) {
             return;
         }
-        if (requestCode == ADMIN_UPDATE_ACTIVITY) {
+        if (requestCode == MANAGER_UPDATE_ACTIVITY) {
             if (resultCode == RESULT_OK) {
-                managerArr = data.getParcelableArrayListExtra("ADMIN_DATA_FROM_UPDATE_TO_MENU");
+                managerArr = data.getParcelableArrayListExtra("MANAGER_DATA_FROM_UPDATE_TO_MENU");
                 initView();
             }
         }

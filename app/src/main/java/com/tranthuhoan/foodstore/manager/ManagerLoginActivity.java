@@ -2,11 +2,11 @@ package com.tranthuhoan.foodstore.manager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.tranthuhoan.foodstore.CustomerLoginActivity;
 import com.tranthuhoan.foodstore.R;
 import com.tranthuhoan.foodstore.model.Manager;
 import com.tranthuhoan.foodstore.retrofit.APIUtils;
 import com.tranthuhoan.foodstore.retrofit.DataClient;
+import com.tranthuhoan.foodstore.ui.activities.customer.CustomerLoginActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -67,10 +67,10 @@ public class ManagerLoginActivity extends AppCompatActivity {
         //Remember Me
         SharedPreferences loginPreferences = getSharedPreferences("loginPrefs", MODE_PRIVATE);
         loginPrefsEditor = loginPreferences.edit();
-        boolean rememberMeCheck = loginPreferences.getBoolean("ADMIN_REMEMBER_ME", false);
+        boolean rememberMeCheck = loginPreferences.getBoolean("MANAGER_REMEMBER_ME", false);
         if (rememberMeCheck) {
-            edtManagerLoginEmail.setText(loginPreferences.getString("ADMIN_EMAIL", ""));
-            edtManagerLoginPassword.setText(loginPreferences.getString("ADMIN_PASSWORD", ""));
+            edtManagerLoginEmail.setText(loginPreferences.getString("MANAGER_EMAIL", ""));
+            edtManagerLoginPassword.setText(loginPreferences.getString("MANAGER_PASSWORD", ""));
             cbManagerLoginRememberMe.setChecked(true);
         }
 
@@ -128,9 +128,9 @@ public class ManagerLoginActivity extends AppCompatActivity {
 
     private void rememberMe() {
         if (cbManagerLoginRememberMe.isChecked()) {
-            loginPrefsEditor.putBoolean("ADMIN_REMEMBER_ME", true);
-            loginPrefsEditor.putString("ADMIN_EMAIL", ManagerEmail);
-            loginPrefsEditor.putString("ADMIN_PASSWORD", ManagerPassword);
+            loginPrefsEditor.putBoolean("MANAGER_REMEMBER_ME", true);
+            loginPrefsEditor.putString("MANAGER_EMAIL", ManagerEmail);
+            loginPrefsEditor.putString("MANAGER_PASSWORD", ManagerPassword);
         } else {
             loginPrefsEditor.clear();
         }
@@ -149,7 +149,7 @@ public class ManagerLoginActivity extends AppCompatActivity {
                     managerArr = (ArrayList<Manager>) response.body();
                     if (managerArr.size() > 0) {
                         Intent intent = new Intent(ManagerLoginActivity.this, ManagerMenuActivity.class);
-                        intent.putExtra("ADMIN_DATA_FROM_LOGIN_TO_MENU", managerArr);
+                        intent.putExtra("MANAGER_DATA_FROM_LOGIN_TO_MENU", managerArr);
                         startActivity(intent);
                         finish();
                         Toast.makeText(ManagerLoginActivity.this, "Welcome " + managerArr.get(0).getMnName(), Toast.LENGTH_SHORT).show();

@@ -46,7 +46,7 @@ import retrofit2.Response;
 
 public class ManagerUpdateActivity extends AppCompatActivity {
 
-    public static final int ADMIN_CHANGE_PASSWORD_ACTIVITY = 2;
+    public static final int MANAGER_CHANGE_PASSWORD_ACTIVITY = 2;
     public static final int RESULT_CHANGE_PASSWORD_OK = 3;
     final int REQUEST_TAKE_PHOTO = 123;
     final int REQUEST_CHOOSE_PHOTO = 321;
@@ -78,7 +78,7 @@ public class ManagerUpdateActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(ManagerUpdateActivity.this);
                 builder.setIcon(R.drawable.ic_baseline_delete_24);
                 builder.setTitle("Delete this admin account");
-                builder.setMessage("Are you sure want to delete account admin " + managerArr.get(0).getMnName() + "?");
+                builder.setMessage("Are you sure want to delete account manager " + managerArr.get(0).getMnName() + "?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -102,7 +102,7 @@ public class ManagerUpdateActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                Intent intent = new Intent(ManagerUpdateActivity.this, ManagerChangePasswordActivity.class);
 //                intent.putExtra("ADMIN_DATA_FROM_UPDATE_TO_CHANGE_PASSWORD", managerArr);
-//                startActivityForResult(intent, ADMIN_CHANGE_PASSWORD_ACTIVITY);
+//                startActivityForResult(intent, MANAGER_CHANGE_PASSWORD_ACTIVITY);
             }
         });
 
@@ -127,9 +127,10 @@ public class ManagerUpdateActivity extends AppCompatActivity {
                         } else {
                             uploadInfo();
                         }
-                    } else {
-                        edtManagerUpdateEmail.setError("Email address not valid");
                     }
+                }
+                else {
+                    edtManagerUpdateEmail.setError("Email address not valid");
                 }
 
             }
@@ -289,7 +290,7 @@ public class ManagerUpdateActivity extends AppCompatActivity {
 
     private void initView() {
         Intent intent = getIntent();
-        managerArr = intent.getParcelableArrayListExtra("ADMIN_DATA_FROM_MENU_TO_UPDATE");
+        managerArr = intent.getParcelableArrayListExtra("MANAGER_DATA_FROM_MENU_TO_UPDATE");
         edtManagerUpdateName.setText(managerArr.get(0).getMnName());
         edtManagerUpdateEmail.setText(managerArr.get(0).getMnEmail());
         edtManagerUpdatePhone.setText(managerArr.get(0).getMnPhone());
@@ -337,7 +338,7 @@ public class ManagerUpdateActivity extends AppCompatActivity {
 
         //Change password
         else if (resultCode == RESULT_CHANGE_PASSWORD_OK) {
-            if (requestCode == ADMIN_CHANGE_PASSWORD_ACTIVITY) {
+            if (requestCode == MANAGER_CHANGE_PASSWORD_ACTIVITY) {
                 managerArr = data.getParcelableArrayListExtra("ADMIN_DATA_FROM_CHANGE_PASSWORD_TO_UPDATE");
             }
         }
@@ -399,7 +400,7 @@ public class ManagerUpdateActivity extends AppCompatActivity {
     //Send data to menu and end activity current
     private void backToMenu() {
         Intent intent = getIntent();
-        intent.putExtra("ADMIN_DATA_FROM_UPDATE_TO_MENU", managerArr);
+        intent.putExtra("MANAGER_DATA_FROM_UPDATE_TO_MENU", managerArr);
         setResult(ManagerMenuActivity.RESULT_OK, intent);
         finish();
     }

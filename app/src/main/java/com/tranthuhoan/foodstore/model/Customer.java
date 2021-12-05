@@ -10,12 +10,6 @@ public class Customer implements Parcelable {
     @SerializedName("CusId")
     @Expose
     private String cusId;
-    @SerializedName("CusEmail")
-    @Expose
-    private String cusEmail;
-    @SerializedName("CusPassword")
-    @Expose
-    private String cusPassword;
     @SerializedName("CusName")
     @Expose
     private String cusName;
@@ -25,16 +19,40 @@ public class Customer implements Parcelable {
     @SerializedName("CusAddress")
     @Expose
     private String cusAddress;
+    @SerializedName("CusEmail")
+    @Expose
+    private String cusEmail;
+    @SerializedName("CusIsVip")
+    @Expose
+    private String cusIsVip;
+    @SerializedName("CusPassword")
+    @Expose
+    private String cusPassword;
+    @SerializedName("CusAvatar")
+    @Expose
+    private String cusAvatar;
+    @SerializedName("CusDOB")
+    @Expose
+    private String cusDOB;
+    @SerializedName("CusGender")
+    @Expose
+    private String cusGender;
+
 
     protected Customer(Parcel in) {
         cusId = in.readString();
-        cusEmail = in.readString();
-        cusPassword = in.readString();
         cusName = in.readString();
         cusPhone = in.readString();
         cusAddress = in.readString();
+        cusEmail = in.readString();
+        cusIsVip = in.readString();
+        cusPassword = in.readString();
+        cusAvatar = in.readString();
+        cusDOB = in.readString();
+        cusGender = in.readString();
     }
-    public static final Parcelable.Creator<Customer> CREATOR = new Parcelable.Creator<Customer>() {
+
+    public static final Creator<Customer> CREATOR = new Creator<Customer>() {
         @Override
         public Customer createFromParcel(Parcel in) {
             return new Customer(in);
@@ -52,13 +70,17 @@ public class Customer implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(cusId);
-        dest.writeString(cusEmail);
-        dest.writeString(cusPassword);
-        dest.writeString(cusName);
-        dest.writeString(cusPhone);
-        dest.writeString(cusAddress);
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(cusId);
+        parcel.writeString(cusName);
+        parcel.writeString(cusPhone);
+        parcel.writeString(cusAddress);
+        parcel.writeString(cusEmail);
+        parcel.writeString(cusIsVip);
+        parcel.writeString(cusPassword);
+        parcel.writeString(cusAvatar);
+        parcel.writeString(cusDOB);
+        parcel.writeString(cusGender);
     }
 
     public String getCusId() {
@@ -67,22 +89,6 @@ public class Customer implements Parcelable {
 
     public void setCusId(String cusId) {
         this.cusId = cusId;
-    }
-
-    public String getCusEmail() {
-        return cusEmail;
-    }
-
-    public void setCusEmail(String cusEmail) {
-        this.cusEmail = cusEmail;
-    }
-
-    public String getCusPassword() {
-        return cusPassword;
-    }
-
-    public void setCusPassword(String cusPassword) {
-        this.cusPassword = cusPassword;
     }
 
     public String getCusName() {
@@ -108,4 +114,53 @@ public class Customer implements Parcelable {
     public void setCusAddress(String cusAddress) {
         this.cusAddress = cusAddress;
     }
+
+    public String getCusEmail() {
+        return cusEmail;
+    }
+
+    public void setCusEmail(String cusEmail) {
+        this.cusEmail = cusEmail;
+    }
+
+    public String getCusIsVip() {
+        return cusIsVip;
+    }
+
+    public void setCusIsVip(String cusIsVip) {
+        this.cusIsVip = cusIsVip;
+    }
+
+    public String getCusPassword() {
+        return cusPassword;
+    }
+
+    public void setCusPassword(String cusPassword) {
+        this.cusPassword = cusPassword;
+    }
+
+    public String getCusAvatar() {
+        return cusAvatar;
+    }
+
+    public void setCusAvatar(String cusAvatar) {
+        this.cusAvatar = cusAvatar;
+    }
+
+    public String getCusDOB() {
+        return cusDOB;
+    }
+
+    public void setCusDOB(String cusDOB) {
+        this.cusDOB = cusDOB;
+    }
+
+    public String getCusGender() {
+        return cusGender;
+    }
+
+    public void setCusGender(String cusGender) {
+        this.cusGender = cusGender;
+    }
+
 }

@@ -1,6 +1,9 @@
 package com.tranthuhoan.foodstore.adapters;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import com.tranthuhoan.foodstore.ItemClickListener;
 import com.tranthuhoan.foodstore.R;
+import com.tranthuhoan.foodstore.manager.food.ManagerFoodViewDetailsActivity;
 import com.tranthuhoan.foodstore.model.Food;
 
 
@@ -66,16 +70,15 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
                 if (isLongClick) {
                     Toast.makeText(context, "Food " + food.getFoodName(), Toast.LENGTH_SHORT).show();
                 } else {
-//                    Intent intent = new Intent(view.getContext(), ManagerFoodViewInfoActivity.class);
-//
-//                    Bundle bundle = new Bundle();
-//
-//                    bundle.putParcelableArrayList("STUDENT_DATA_ARRAY", foodArr);
-//                    bundle.putInt("STUDENT_DATA_POSITION", position);
-//                    intent.putExtra("STUDENT_DATA_FROM_STUDENT_ADAPTER_TO_AD_STU_VIEW_PROFILE", bundle);
-//                    view.getContext().startActivity(intent);
-//                    ((Activity) view.getContext()).finish();
+                    Intent intent = new Intent(view.getContext(), ManagerFoodViewDetailsActivity.class);
 
+                    Bundle bundle = new Bundle();
+
+                    bundle.putParcelableArrayList("FOOD_DATA_ARRAY", foodArr);
+                    bundle.putInt("FOOD_DATA_POSITION", position);
+                    intent.putExtra("FOOD_DATA_FROM_ROOM_ADAPTER_TO_AD_FOOD_VIEW_DETAILS", bundle);
+                    view.getContext().startActivity(intent);
+                    ((Activity) view.getContext()).finish();
                 }
             }
         });
